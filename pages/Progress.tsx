@@ -1,21 +1,17 @@
 import React from 'react';
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { TrendingUp, Clock, BookOpen, Zap, Target, Award, Flame, Trophy, Lock } from 'lucide-react';
 
 const Progress: React.FC = () => {
-  // Mock Data matching the visual curve roughly
+  // Mock Data matching the visual curve in the screenshot
   const activityData = [
     { name: '05.12', val: 0 },
     { name: '06.12', val: 0 },
     { name: '07.12', val: 0 },
     { name: '08.12', val: 0 },
     { name: '09.12', val: 0 },
-    { name: '10.12', val: 5 }, // Spike
+    { name: '10.12', val: 5 }, // Spike matching the screenshot
     { name: '11.12', val: 0 },
-  ];
-
-  const pieData = [
-    { name: 'Math', value: 100 },
   ];
 
   return (
@@ -130,19 +126,21 @@ const Progress: React.FC = () => {
                  <BookOpen size={18} /> Fortschritt pro Fach
                </h3>
                <div className="h-full pb-10 flex items-end justify-center">
-                 {/* Placeholder for empty state chart */}
-                 <div className="w-full h-full border-l border-b border-slate-200 relative">
+                 {/* Placeholder for empty state chart matching screenshot */}
+                 <div className="w-full h-full border-l border-b border-slate-200 relative mb-4">
                     <div className="absolute bottom-0 left-0 w-full h-full border-t border-slate-100 border-dashed" style={{ top: '25%' }}></div>
                     <div className="absolute bottom-0 left-0 w-full h-full border-t border-slate-100 border-dashed" style={{ top: '50%' }}></div>
                     <div className="absolute bottom-0 left-0 w-full h-full border-t border-slate-100 border-dashed" style={{ top: '75%' }}></div>
                     
+                    {/* Y-Axis Labels */}
                     <div className="absolute -left-4 top-0 text-xs text-slate-400">4</div>
                     <div className="absolute -left-4 top-[25%] text-xs text-slate-400">3</div>
                     <div className="absolute -left-4 top-[50%] text-xs text-slate-400">2</div>
                     <div className="absolute -left-4 top-[75%] text-xs text-slate-400">1</div>
                     <div className="absolute -left-4 bottom-0 text-xs text-slate-400">0</div>
 
-                    <div className="absolute bottom-0 left-[20%] text-sm text-slate-600 translate-y-4">Math</div>
+                    {/* X-Axis Labels */}
+                    <div className="absolute -bottom-6 left-[20%] text-sm text-slate-600">Math</div>
                  </div>
                </div>
             </div>
@@ -151,12 +149,11 @@ const Progress: React.FC = () => {
             <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm h-[350px] flex flex-col">
               <h3 className="font-bold text-slate-800 mb-6">Lernverteilung</h3>
               <div className="flex-1 flex items-center justify-center relative">
-                 <div className="w-48 h-48 rounded-full bg-indigo-500 flex items-center justify-center relative overflow-hidden">
-                    <div className="absolute inset-0 bg-indigo-600" style={{ clipPath: 'polygon(50% 50%, 100% 50%, 100% 100%, 50% 100%)' }}></div>
-                    {/* Tiny slice */}
-                    <div className="absolute inset-0 bg-purple-500" style={{ clipPath: 'polygon(50% 50%, 50% 0%, 52% 0%)' }}></div>
+                 <div className="w-48 h-48 rounded-full bg-indigo-600 flex items-center justify-center relative overflow-hidden shadow-sm">
+                    {/* The screenshot shows a solid purple circle mostly */}
+                    <div className="absolute inset-0 bg-violet-500" style={{ clipPath: 'polygon(50% 50%, 50% 0%, 50% 0%)' }}></div>
                  </div>
-                 <div className="absolute left-4 top-1/2 text-xs text-indigo-600 font-bold bg-white px-2 py-1 rounded shadow-sm">Math 100%</div>
+                 <div className="absolute left-4 top-1/2 text-xs text-indigo-600 font-bold bg-white px-2 py-1 rounded shadow-sm border border-indigo-50">Math 100%</div>
               </div>
             </div>
           </div>
@@ -171,7 +168,7 @@ const Progress: React.FC = () => {
               <Target size={18} className="text-fuchsia-500" /> Zuversicht-Tracker
             </h3>
             
-            <div className="bg-slate-50 rounded-2xl p-6 text-center mb-6">
+            <div className="bg-indigo-50 rounded-2xl p-6 text-center mb-6">
               <p className="text-xs font-medium text-slate-500 mb-2">Durchschnittliche Zuversicht</p>
               <div className="text-5xl font-bold text-red-600">0%</div>
             </div>

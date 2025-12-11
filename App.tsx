@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import Sidebar from './components/Sidebar';
 import Dashboard from './pages/Dashboard';
@@ -8,6 +9,7 @@ import LearningSession from './pages/LearningSession';
 import EditorPage from './pages/EditorPage';
 import ReviewPage from './pages/ReviewPage';
 import GroupsPage from './pages/GroupsPage';
+import AchievementsPage from './pages/AchievementsPage';
 import { Exam } from './types';
 
 const App = () => {
@@ -83,10 +85,11 @@ const App = () => {
         return <ReviewPage />;
       case 'lerngruppen':
         return <GroupsPage />;
+      case 'erfolge':
+        return <AchievementsPage />;
       default:
         // Default to Dashboard or construction placeholders
         if (currentPage === 'bibliothek') return <div className="p-8 text-center text-slate-400">Bibliothek is under construction.</div>;
-        if (currentPage === 'erfolge') return <Progress />; // Recycle progress for now
         return <Dashboard onNavigate={handleNavigate} exams={exams} onOpenExam={handleOpenExam} />;
     }
   };
